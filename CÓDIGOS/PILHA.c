@@ -37,3 +37,17 @@ int pop(struct No **topo, int valor_removido){
     }
     return -1;
 }
+
+
+int main()
+{
+    struct No *topo = NULL; // Pilha começando do zero
+    
+    push(&topo, 10);
+    push(&topo, 20);
+    
+    int removido = pop(&topo);
+    printf("Valor que saiu: %d\n", removido);
+    
+    return 0;
+}
