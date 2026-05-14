@@ -172,6 +172,7 @@ int totalNosArvBin(ArvBin *raiz){
     }
     
     No* temp = *raiz;
+        return 1 + totalNosArvBin(&(temp->esq)) + totalNosArvBin(&(temp->dir));
 }
 
 int main()
