@@ -175,6 +175,67 @@ int totalNosArvBin(ArvBin *raiz){
         return 1 + totalNosArvBin(&(temp->esq)) + totalNosArvBin(&(temp->dir));
 }
 
+No* remove_atual(No *atual){
+    No *no1, *no2;
+    if(atual->esq == NULL){
+        no2 = atual->dir;
+        free(atual);
+        return no2;
+    }
+    
+    no1 = atual;
+    no2 = atual->esq;
+    
+    while(no2->dir != NULL){
+        no1 = no2;
+        no2 = no2->dir;
+    }
+    
+    if(no1 != atual){
+        no1->dir = no2->esq;
+        no2->esq = atual->esq;
+    }
+    
+    no2->dir = atual->dir;
+    free(atual);
+    
+    return no2;
+}
+
+int removeArvoreBin(ArvBin *raiz, int valor){
+    if(raiz == NULL){
+        return 0;
+    }
+    
+    No* ant = NULL;
+    No *atual = *raiz;
+    
+    while(atual!=NULL){
+        if(valor == atual->info){
+            if(atual == *raiz){
+                *raiz = remove_atual(atual);
+            }
+            else{
+                if(ant->dir == atual){
+                    ant->dir = remove_atual(atual);
+                }
+                else{
+                    ant->esq = remove_atual(atual);
+                }
+            }
+        }
+        // anda na arvore 
+        ant = atual;
+        if(valor>atual->info){
+            atual = atual->dir;
+        }
+        else{
+            atual = atual->esq;
+        }
+    }
+    return 0;
+}
+
 int main()
 {
     printf("Árvore Binária de Busca\n");
