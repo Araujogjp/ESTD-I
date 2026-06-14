@@ -253,6 +253,16 @@ int altura_ArvBin(ArvBin *raiz){
     }
 }
 
+int totalNO_ArvBin(ArvBin *raiz){
+    if (raiz == NULL)
+        return 0;
+    if (*raiz == NULL)
+        return 0;
+    int alt_esq = totalNO_ArvBin(&((*raiz)->esq));
+    int alt_dir = totalNO_ArvBin(&((*raiz)->dir));
+    return(alt_esq + alt_dir + 1);
+}
+
 int main()
 {
     printf("Árvore Binária de Busca\n");
