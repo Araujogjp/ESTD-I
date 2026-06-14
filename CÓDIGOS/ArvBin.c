@@ -263,6 +263,21 @@ int totalNO_ArvBin(ArvBin *raiz){
     return(alt_esq + alt_dir + 1);
 }
 
+int maior_ABB(ArvBin *raiz){
+    if (raiz == NULL || *raiz == NULL){
+        printf("Arvore vazia!\n");
+        return -1;
+    }
+    
+    No *atual = *raiz;
+    
+    while (atual->dir != NULL){
+        atual = atual->dir;
+    }
+    
+    return atual->valor;
+}
+
 int main()
 {
     printf("Árvore Binária de Busca\n");
