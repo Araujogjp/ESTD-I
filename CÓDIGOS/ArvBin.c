@@ -237,10 +237,12 @@ int removeArvoreBin(ArvBin *raiz, int valor){
 }
 
 int altura_ArvBin(ArvBin *raiz){
-    if (raiz == NULL)
+    if (raiz == NULL){
         return 0;
-    if (*raiz == NULL)
+    }
+    if (*raiz == NULL){
         return 0;
+    }
     int alt_esq = altura_ArvBin(&((*raiz)->esq));
     int alt_dir = altura_ArvBin(&((*raiz)->dir));
     if (alt_esq > alt_dir)
