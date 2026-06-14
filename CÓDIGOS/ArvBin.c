@@ -236,6 +236,19 @@ int removeArvoreBin(ArvBin *raiz, int valor){
     return 0;
 }
 
+int altura_ArvBin(ArvBin *raiz){
+    if (raiz == NULL)
+        return 0;
+    if (*raiz == NULL)
+        return 0;
+    int alt_esq = altura_ArvBin(&((*raiz)->esq));
+    int alt_dir = altura_ArvBin(&((*raiz)->dir));
+    if (alt_esq > alt_dir)
+        return (alt_esq + 1);
+    else
+        return (alt_dir + 1);
+}
+
 int main()
 {
     printf("Árvore Binária de Busca\n");
