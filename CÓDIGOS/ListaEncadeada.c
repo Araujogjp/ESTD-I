@@ -85,12 +85,12 @@ int buscarNaLista(Lista *lista, int x){
     
     cel *temp;
     temp = *lista;
-    while(temp->seg != NULL){ //anda até o fim da lista
-        if(temp->conteudo == x){
-            return 1;
-        }
-        temp = temp->seg;
-    }
+    while(temp != NULL){  // até o temp ser NULL
+    	if(temp->conteudo == x){
+        return 1;
+		}
+    temp = temp->seg;
+}
     return 0;
 }
 //----------------------------------------------------------------
