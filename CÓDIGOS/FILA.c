@@ -6,21 +6,19 @@ void enfileirar(struct No **inicio, struct No **fim, int num) {
     if (novo != NULL) {
         novo->valor = num;
         novo->prox = NULL; // Novo nó sempre será o último, então aponta pra NULL
-
         if (*inicio == NULL) { 
             // Se a fila estava vazia, o novo é o primeiro!
             *inicio = novo;
         } else {
             // Se já tinha gente, o antigo "fim" agora aponta para o novo
-            (_______)->prox = novo; 
+            (*fim)->prox = novo;  // ← LACUNA 1
         }
         
         // No final, o ponteiro de controle "fim" precisa atualizar
-        *fim = _______; 
+        *fim = novo;  // ← LACUNA 2
         printf("\n%d entrou na fila!", num);
     }
 }
-
 
 int desenfileirar(struct No **inicio, struct **fim){
     struct No *aux;
